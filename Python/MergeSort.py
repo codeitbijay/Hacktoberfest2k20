@@ -32,7 +32,6 @@ def mergeSort(a):
 
 
 a = [12, 11, 13, 5, 6, 1, 7]
-print('Sunny Kushwaha [180020116014]')
 
 n = len(a)
 
