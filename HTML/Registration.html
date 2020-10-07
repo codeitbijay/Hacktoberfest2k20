@@ -1,0 +1,101 @@
+<head>
+</head>
+<body>
+	<script>
+		function myform(form)
+		{
+			var name=form.fname.value;
+			var mail=form.email.value;
+			var p1=form.pass1.value;
+			var p2=form.pass2.value;
+			var city=form.city.value;
+			var add=form.address.value;
+			var gen=form.gen.value;
+			var phone=form.phone.value;
+			var check=form.checky.checked;
+					
+			if(name!="" && mail!="" && add!="" && gen!="" && phone!="")
+			{
+				if(name.charAt(0)=='_' || name.charAt(0)=='@' || (name.charAt(0)>='0' && name.charAt(0)<='9'))
+					document.getElementById("msg").innerHTML='<font color="red">Can not use @ or _ or a number in the starting of name</font>';
+				else if(p1.length<6 || p1.length>12)
+					document.getElementById("msg").innerHTML='<font color="red">Password length should be 6 to 12 characters</font>';
+				else if(phone.length!=10)
+					document.getElementById("msg").innerHTML='<font color="red">Phone no must have 10 digits</font>';
+				else if(phone.charAt(0)<'6')
+					document.getElementById("msg").innerHTML='<font color="red">Phone no must start with 6-9 </font>';
+				
+				else if(p1=="" || p2=="")
+					document.getElementById("msg").innerHTML='<font color="red">Can not have blank passwords</font>';
+				else if(p1!="" && p2!="")
+				{
+					if(p1!=p2)
+						document.getElementById("msg").innerHTML='<font color="red">Passwords dont match</font>';
+					else if(check == false)
+						document.getElementById("msg").innerHTML='<font color="red">Pls agree to continue</font>';
+					else 
+					{
+						document.getElementById("msg").innerHTML='';
+						document.getElementById("tbldata").innerHTML='<table border=1> <tr><td>Name</td><td>'+name+'</td></tr><tr><td>Email</td><td>'+mail+'</td></tr><tr><td>pass</td><td>'+p1+'</td></tr><tr><td>Add</td><td>'+add+'</td></tr><tr><td>City</td><td>'+city+'</td></tr><tr><td>gender</td><td>'+gen+'</td></tr></table>';
+					}
+				}
+			}
+			else 
+				document.getElementById("msg").innerHTML='<font color="red">Can not have empty fields</font>';
+		}
+	</script>
+	
+	<form >
+	<table border="1">
+		<tr>
+			<td>Enter Name: </td>
+			<td><input type="text" name="fname" placeholder="first name middle last"></br> </td>
+		</tr>
+		<tr>
+			<td>Enter Email: </td>
+			<td><input type="text" name="email" placeholder="abc@xyz.com"></br></td>
+		</tr>
+		<tr>
+			<td>Enter Password: </td>
+			<td><input type="password" name="pass1" placeholder="PASSWORD"></br></td>
+		</tr>
+		<tr>
+			<td>Re-Enter Password: </td>
+			<td><input type="password" name="pass2" placeholder="PASSWORD"></br></td>
+		</tr>
+		<tr>
+			<td>Enter Phone: </td>
+			<td><input type="number" name="phone" placeholder="97345631343"></br></td>
+		</tr>
+		<tr>
+			<td>Enter Add: </td>
+			<td><textarea name="address" rows="5" cols="15"></textarea></br></td>
+		</tr>
+		<tr>
+			<td>Select City:</td>
+			<td><select name="city">
+						<option value="ADI">A'bad</option>
+						<option value="ST">Surat</option>
+						<option value="RJT">Rajkot<option>
+				</select></br></td>
+		</tr>
+		<tr>
+			<td>Gender: </td>
+			<td></br><input type="radio" name="gen" value="m"> Male</br>
+				<input type="radio" name="gen" value="f"> Female</br></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="checky" checked=""> Agree to terms</br></td>
+			<td>
+				<input type="submit" value="register" onclick="myform(this.form); return false;"></br>
+				<input type="reset" value="erase data"></br></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><p id="msg"></p></td>
+		</tr>
+	</table>
+		<p id="tbldata"></p>
+				
+	</form>
+</body>
