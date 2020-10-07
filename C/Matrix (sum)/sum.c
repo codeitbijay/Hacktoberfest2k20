@@ -23,7 +23,7 @@ int main()
 
 	printf("\n");
 
-	printf("Input the Matrix1: \n");
+	printf("Input the Matrix1 : \n");
 
 	for (i = 0; i < rows1; i++)
 	{
@@ -48,7 +48,7 @@ int main()
 
 	printf("\n");
 
-	printf("Input the Matrix2: \n");
+	printf("Input the Matrix2 : \n");
 
 	for (i = 0; i < rows2; i++)
 	{
