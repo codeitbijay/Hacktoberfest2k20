@@ -6,7 +6,7 @@ int main()
     int i, n;
     float arr[100];
 
-    cout << "Enter total number of elements(1 to 100): ";
+    cout << "Enter total number of elements(1 to 100) : ";
     cin >> n;
     cout << endl;
 
