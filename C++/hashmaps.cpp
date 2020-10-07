@@ -1,7 +1,7 @@
 template <typename V>
 class MapNode{
 	public:
-		MapNode* next;//template name kyun nahi specify kiya yahan?
+		MapNode* next;
 		V data;
 		string key;
 		MapNode(string key,V value){
@@ -29,7 +29,7 @@ class map{
 		}
 		~map(){
 			for(int i=0;i<bucketSize;i++){
-				MapNode* temp=buckets[i];//yahan doubt hai
+				MapNode* temp=buckets[i];
 				delete temp;
 			}
 			delete [] buckets;
