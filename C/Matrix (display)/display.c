@@ -31,7 +31,7 @@ int main()
 		}
 	}
 
-	printf("\n\nMatrix: \n");
+	printf("\n\n Matrix : \n");
 	for (i = 0; i < rows; i++)
 	{
 
