@@ -1,0 +1,26 @@
+/*TEXT colors */
+.text-primary {
+  color: rgb(139, 7, 151);
+  font-weight: 650;
+}
+/*BUTTONs*/
+.btn-hover {
+  opacity: 0.8;
+}
+
+.btn-primary,
+.bg-primary {
+  background: black;
+  color: white;
+}
+.flex-items {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  line-height: 25px;
+}
+.flex-items > div {
+  padding: 20px;
+}
+
+/*  */
