@@ -1,5 +1,5 @@
 #!env perl
-// Converts a number up to 3999 to roman numerals
+# Converts a number up to 3999 to roman numerals
 
 use strict;
 use warnings;
