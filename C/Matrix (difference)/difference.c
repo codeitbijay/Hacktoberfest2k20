@@ -16,7 +16,8 @@ int main()
 	printf("Columns (Matrix1) = ");
 	scanf("%d", &columns1);
 
-	if ((rows1 > 24) || (columns1 > 24)) {
+	if ((rows1 > 24) || (columns1 > 24)) 
+	{
 		fprintf(stderr, "Rows/Columns > 24 \nAborting! \n");
 		return -1;
 	}
@@ -41,7 +42,8 @@ int main()
 	printf("Columns (Matrix2) = ");
 	scanf("%d", &columns2);
 
-	if ((rows2 > 24) || (columns2 > 24)) {
+	if ((rows2 > 24) || (columns2 > 24))
+	{
 		fprintf(stderr, "Rows/Columns > 24 \nAborting! \n");
 		return -1;
 	}
@@ -60,7 +62,8 @@ int main()
 
 	printf("\n");
 
-	if (rows1 != rows2 || columns1 != columns2) {
+	if (rows1 != rows2 || columns1 != columns2)
+	{
 		fprintf(stderr, "Rows/Columns of 2 Matrices Not Equal \nAborting! \n");
 		return -1;
 	}
@@ -68,7 +71,8 @@ int main()
 	printf("Matrix1: \n");
 	for (i = 0; i < rows1; i++)
 	{
-		for (j = 0; j < columns1; j++) {
+		for (j = 0; j < columns1; j++) 
+		{
 			printf("%d	", matrix1[i][j]);
 		}
 		printf("\n");
@@ -79,7 +83,8 @@ int main()
 	printf("Matrix2: \n");
 	for (i = 0; i < rows2; i++)
 	{
-		for (j = 0; j < columns2; j++) {
+		for (j = 0; j < columns2; j++) 
+		{
 			printf("%d	", matrix2[i][j]);
 		}
 		printf("\n");
@@ -89,7 +94,8 @@ int main()
 
 	printf("Difference (Matrix1 - Matrix2): \n");
 	for (i = 0; i < rows1; i++) {
-		for (j = 0; j < columns1; j++) {
+		for (j = 0; j < columns1; j++) 
+		{
 			differenceMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
 			printf("%d	", differenceMatrix[i][j]);
 		}
