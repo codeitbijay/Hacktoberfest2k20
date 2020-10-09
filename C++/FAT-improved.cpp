@@ -1,3 +1,4 @@
+// this is an amazing project
 #include <iostream>     // io library, std::cin std::cout std::endl
 #include <algorithm>    // for std::find
 #include <iterator>     // for std::begin and std::end
