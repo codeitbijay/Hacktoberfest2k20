@@ -2,11 +2,13 @@
 #include <iostream>
 using namespace std ;
 
-struct Edge {
+struct Edge
+{
 	int src, dest, weight;
 };
 
-struct Graph {
+struct Graph 
+{
 	int V, E;
 	struct Edge* edge;
 };
@@ -37,8 +39,10 @@ void BellmanFord(struct Graph* graph, int src)
 		dist[i] = INT_MAX;
 	dist[src] = 0;
 
-	for (int i = 1; i <= V - 1; i++) {
-		for (int j = 0; j < E; j++) {
+	for (int i = 1; i <= V - 1; i++) 
+	{
+		for (int j = 0; j < E; j++) 
+		{
 			int u = graph->edge[j].src;
 			int v = graph->edge[j].dest;
 			int weight = graph->edge[j].weight;
@@ -47,11 +51,13 @@ void BellmanFord(struct Graph* graph, int src)
 		}
 	}
 
-	for (int i = 0; i < E; i++) {
+	for (int i = 0; i < E; i++) 
+	{
 		int u = graph->edge[i].src;
 		int v = graph->edge[i].dest;
 		int weight = graph->edge[i].weight;
-		if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
+		if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) 
+		{
 			printf("Graph contains negative weight cycle");
 			return;
 		}
@@ -74,7 +80,8 @@ int main()
 
 	struct Graph* graph = createGraph(V, E);
 
-	for(int i=0;i<E;i++) {
+	for(int i=0;i<E;i++) 
+	{
         cout<<"Enter src, dest and weight of edge "<<i+1<<" : " ;
         cin>>graph->edge[i].src>>graph->edge[i].dest>>graph->edge[i].weight ;
 	}
