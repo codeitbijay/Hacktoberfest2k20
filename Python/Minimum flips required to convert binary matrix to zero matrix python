@@ -1,0 +1,44 @@
+#Minimum Number of flips to convert binary matrix to zero matrix
+#Method 1 : BFS
+    def minFlips(self, mat: List[List[int]]) -> int:
+        m, n = len(mat), len(mat[0])
+        start = sum(cell << (i * n + j) for i, row in enumerate(mat) for j, cell in enumerate(row))
+        dq = collections.deque([(start, 0)])
+        seen = {start}
+        while dq:
+            cur, step = dq.popleft()
+            if not cur:
+                return step
+            for i in range(m):
+                for j in range(n):
+                    next = cur
+                    for r, c in (i, j), (i, j + 1), (i, j - 1), (i + 1, j), (i - 1, j):
+                        if m > r >= 0 <= c < n:
+                            next ^= 1 << (r * n + c)
+                    if next not in seen:
+                        seen.add(next)
+                        dq.append((next, step + 1))
+        return -1
+#Analysis:
+#Time: O(m * n * 2 ^ (m * n)), Space: O(2 ^ (m * n)).
+
+#Method 2 : DFS
+    def minFlips(self, mat: List[List[int]]) -> int:
+        m, n = len(mat), len(mat[0])
+        start = sum(cell << i * n + j for i, row in enumerate(mat) for j, cell in enumerate(row))
+        stack = [(start, 0)]
+        seenSteps = {start : 0}
+        while stack:
+            cur, step = stack.pop()
+            for i in range(m):
+                for j in range(n):
+                    next = cur
+                    for r, c in (i, j), (i, j + 1), (i, j - 1), (i + 1, j), (i - 1, j):
+                        if m > r >= 0 <= c < n:
+                            next ^= 1 << r * n + c
+                    if seenSteps.get(next, float('inf')) > step + 1:
+                        seenSteps[next] = step + 1
+                        stack.append((next, step + 1))
+        return seenSteps.get(0, -1)
+#Analysis:
+#Time: O(m * n * 2 ^ (m * n)), Space: O(2 ^ (m * n)).
