@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long t, i, n, temp, maxe;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    vector<long long>a;
+	    while(n--)
+	    {
+	        cin>>temp;
+	        a.push_back(temp);
+	    }
+	    maxe = *max_element(a.begin(), a.end()) + 1;
+	    n=a.size();
+	    if(n%2!=0)
+	        a[n-1] = a[n/2]*maxe + a[n-1];
+	    for(i=0; i<a.size()/2; i++)
+	    {
+	        long x = 1+2*i;
+	        a[x]=(a[i]%maxe)*maxe+a[x];
+	        a[x-1]=(a[n-i-1]%maxe)*maxe + a[x-1];
+	    }
+	    for(i=0; i<a.size(); i++)
+	    {
+	        a[i]=a[i]/maxe;
+	        cout<<a[i]<<" ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
