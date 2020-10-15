@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us | iCoder{% endblock title %}
+
+{% block body %}
+<div class='container my-2'>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>{{ message.tags }}</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>{% endfor %}
+        {% endif %}
+
+<h1>Contact iCoder</h1>
+<form action="/contact" method="POST">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="name" class="form-control" id="name" aria-describedby="name" name="name" required="">
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required="">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="phonenumber">Phone Number</label>
+    <input type="Phone" class="form-control" id="phonenumber" name="phonenumber" required="">
+  </div>
+  <div class="form-group">
+    <label for="massage">massage</label>
+    <textarea type="text" class="form-control" id="massage" name="massage" required=""></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock body %}

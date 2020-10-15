@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Coding Blogs by iCoder{% endblock title %}
+
+{% block body %}
+{% load humanize %}
+<div class="container my-4">
+    <h2>Coding Blogs by iCoder</h2><br>
+    {% for post in allposts %}
+    <div class="card">
+        <strong class="d-inline-block text-primary px-2">Article by {{ post.author }}</strong>
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <div class="mb-1 text-muted">{{ post.timeStamp | naturaltime }}</div>
+          <p class="card-text previews">{{ post.content| truncatechars:200 }}</p>
+          <a href="/blog/{{ post.slug }}" class="btn btn-primary">Read More...</a>
+        </div>
+      </div><br>
+      {% endfor %}
+</div>
+<script>
+  let previews = document.getElementsByClassName('previews');
+  Array.from(previews).forEach((element)=>{
+    element.innerHTML = element.innerText;
+  })
+</script>
+
+{% endblock body %}

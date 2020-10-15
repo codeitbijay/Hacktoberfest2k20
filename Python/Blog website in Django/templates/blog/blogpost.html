@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ post.title }} | Author- {{post.author}} | iCoder Blog{% endblock title %}
+
+{% block body %}
+{% load humanize %}
+{% load extras %}
+<div class="container my-4">
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ post.title }}</h2>
+        <p class="blog-post-meta">{{ post.timeStamp }} by <a href="#">{{ post.author }}</a></p>
+        <hr>
+        <p>{{ post.content | safe }}</p>
+    </div>
+    <hr>
+</div>
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>{{ message.tags }}</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>{% endfor %}
+    {% endif %}
+</div>
+<div class="container">
+    <h2>Comments: ({{ comment.count }})</h2>
+    {% if user.is_authenticated %}
+    <form action="/blog/postcomment" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" name="comment" id="comment" aria-describedby="text"
+                placeholder="Enter Comment here">
+        </div>
+        <input type="hidden" name="perentSno" id="perentSno" value="">
+        <input type="hidden" name="postSno" id="postSno" value="{{ post.sno }}">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>{% else %}
+    <p>Please loging to post comment</p>
+    <!-- Button trigger signup modal -->
+    <button type="button" class="btn btn-primary my-2 mx-2 my-sm-0" data-toggle="modal"
+        data-target="#signupModal">SignUp</button>
+    <!-- Button trigger login modal -->
+    <button type="button" class="btn btn-primary my-2 mx-2 my-sm-0" data-toggle="modal"
+        data-target="#loginModal">LogIn</button>
+    {% endif %}
+    {% for comment in comment %}
+    <div class="row my-3">
+        <div class="col-md-1"><img src="https://img.icons8.com/doodle/50/000000/user-male.png" /></div>
+        <div class="col-md-11"><b> {{ comment.user.username }}</b> <span class="badge badge-secondary">
+                {{ comment.timestamp | naturaltime }}</span>
+            <div> {{ comment.comment}}</div>
+            <div class="replay ms-0">
+                {% if user.is_authenticated %}
+                <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse"
+                    data-target="#replayBox{{ comment.sno }}" aria-expanded="false"
+                    aria-controls="replayBox{{ comment.sno }}">
+                    Replay
+                </button>{% else %}
+                <button class="btn btn-sm btn-primary" disabled type="button">
+                    Login to Replay
+                </button>
+                {% endif %}
+                <br>
+                <div class="collapse" id="replayBox{{ comment.sno }}">
+                    <div class="card card-body my-2">
+                        {% if user.is_authenticated %}
+                        <form action="/blog/postcomment" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="comment" id="commentreply"
+                                    aria-describedby="text" placeholder="Enter Replay here">
+                                <input type="hidden" name="perentSno" id="perentSno" value="{{ comment.sno }}">
+                            </div>
+                            <input type="hidden" name="postSno" id="postSno" value="{{ post.sno }}">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="replies my-2">
+                    {% for reply in replyDict|get_val:comment.sno %}
+                    <div class="row my-3">
+                        <div class="col-md-1"><img src="https://img.icons8.com/doodle/40/000000/user-male.png" /></div>
+                        <div class="col-md-11"><b>{{ reply.user.username }}</b> <span
+                                class="badge badge-secondary">{{ reply.timestamp | naturaltime }}</span>
+                            <div> {{ reply.comment}}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}
