@@ -1,5 +1,5 @@
 #Program to check whether the number is an armstrong number or not
-eg:153 is an Armstrong number. 
+#eg:153 is an Armstrong number. 
 #153 = (1*1*1)+ (5*5*5)+(3*3*3)
 #407=(4*4*4)+(0*0*0)+(7*7*7*)
 #1634=(1*1*1*1)+(6*6*6*6)+(3*3*3*3)+(4*4*4*4)
