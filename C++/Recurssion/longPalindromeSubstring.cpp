@@ -1,46 +1,48 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
-//program to reverse a string
-string reverse(string x)
-{   string k;
-	for(string ::reverse_iterator it=x.rbegin();it!=x.rend();it++)
-	k.push_back(*it);
-	return k;
+void max_pal(string s){
+    int n = s.length();
+    int max_len = 0;
+    int si, ei;
+
+    //odd
+    for(int axis = 0; axis < n; axis++){
+        int k = 0;
+        while(axis-k>=0 && axis+k<n && s.at(axis - k) == s.at(axis + k)){   
+            int l = 2*k + 1;         
+            if(max_len < l){
+                max_len = l;
+                si = axis - k;
+                ei = axis + k;
+            }
+            k++;
+        }
+    }
+
+    //even
+    for(float axis = 0.5; axis < n; axis+=0.5){
+        float k = 0.5;
+        while(axis-k>=0 && axis+k<n && s.at(axis - k) == s.at(axis + k)){     
+            if(max_len < 2*k + 1 ){
+                max_len = 2*k + 1;
+                si = axis - k;
+                ei = axis + k;
+            }
+            k++;
+        }
+    }
+    cout<<endl<<"Max pallindrome: ";
+    for(int c = si; c <= ei; c++)
+        cout<<s.at(c);
 }
-//this is to find the longest palindromic substring
-int lpss(string x)
-{   int n=x.length();
-    int m=n;
-    string y=reverse(x);
-	int t[n+1][m+1];
-	memset(t,0,sizeof(t));
-	int result=0;
-	for(int i=1;i<=n;i++)
-	{
-		for(int j=1;j<=m;j++)
-		{
-			if(x[i-1]==y[j-1])
-			{
-			t[i][j]=1+t[i-1][j-1];result=max(result,t[i][j]);}
-			else
-			t[i][j]=0;
-		}
-	}
-	
-	cout<<"  i  "<<"\t"<<" j "<<endl;
- cout<<"----|---------------------------"<<endl;
-  for(int i=0;i<=n;i++)
-  { cout<<"    |";
-   for(int j=0;j<=m;j++)
-	cout<<t[i][j]<<" ";
-    cout<<"\n";
-  }
-  
-  return result;
-}
-int main()
-{
-	string x="forgeeksskeegfor";
-	cout<<lpss(x);
+
+int main(){
+    string s;
+    getline(cin,s);
+
+    max_pal(s);
+
+    return 0;
 }
