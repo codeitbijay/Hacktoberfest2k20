@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+    background-color: cornflowerblue;
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mainDiv {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+}
+
+#centerDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 10px;
+    margin: 15px;
+    box-shadow: 10px darkgray;
+}
+
+h1 {
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgb(245, 120, 120);
+    text-shadow: 0 0 25px rgba(237, 238, 168, 0.603);
+    font-size: 2.1rem;
+}
+
+h2 {
+    text-align: center;
+    font: outline;
+    color: mintcream;
+    margin-bottom: 8px;
+}
+
+textarea {
+    background-color: #444;
+    color: lawngreen;
+    box-shadow: 0 0 20px rgba(237, 238, 168, 0.603);
+    font-size: large;
+    font-weight: bold;
+    resize: none;
+    border-radius: 10px 10px 0 0;
+    border: 10px solid rgb(245, 120, 120);
+}
+
+.mainBtn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 5px solid #2980b9;
+    font-size: 1rem;
+    font-weight: 700;
+    color: darkblue;
+}
+
+.mainBtn:hover {
+    background-color: hotpink;
+}
+
+@media screen and (max-width: 480px) {
+    textarea {
+        background-color: #444;
+        color: lawngreen;
+        box-shadow: 0 0 20px rgba(237, 238, 168, 0.603);
+        font-size: large;
+        font-weight: bold;
+        width: 330px;
+        border-radius: 10px 10px 0 0;
+        border: 10px solid rgb(245, 120, 120);
+    }
+    h2 {
+        margin-right: 5px;
+        text-align: center;
+        color: mintcream;
+        font: outline;
+        margin-bottom: 8px;
+    }
+    h1 {
+        text-transform: capitalize;
+        text-align: center;
+        margin-bottom: 30px;
+        color: rgb(245, 120, 120);
+        text-shadow: 0 0 25px rgba(237, 238, 168, 0.603);
+        font-size: 2.1rem;
+        margin-right: 10px;
+    }
+}

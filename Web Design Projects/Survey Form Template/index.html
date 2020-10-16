@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Building A Survey Form</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<h1 id="title">Volunteer Form</h1>
+<div id="form-outer">
+<p id="description">Please complete and return this form to help us organize our upcoming event.</p>
+<form id="survey-form">
+  <div class="rowTab">
+  <div class="labels">
+  <label id="name-label" for="name">* Name:</label>
+</div>
+  <div class="rightTab">
+    <input autofocus type="text" name="name" id="name"
+  class="input-field" placeholder="Enter your name" required>
+    </div>
+    </div>
+  <div class="rowTab">
+    <div class="labels">
+      <label id="email-label" for="email">* Email:</label>
+    </div>
+    <div class="rightTab">
+      <input type="email" name="email" id="email"
+             class="input-field" placeholder="Enter your email" required>
+    </div>
+  </div>
+  <div class="rowTab">
+    <div class="labels">
+      <label id="number-label" for="age">*Age(16 or older):</label>
+    </div>
+    <div class="rightTab">
+      <input type="number" name="age" id="number" min="16" max="130" class="input-field" placeholder="Enter your age" required>
+    </div>
+  </div>
+  <div class="rowTab">
+    <div class="labels">
+      <label for="timeOday">Would you prefer to volunteer in the morning or evening?</label>
+    </div>
+    <div class="rightTab">
+      <select id="dropdown" name="timeOday" class="dropdown">
+        <option disabled value>Select an option</option>
+        <option value>Morning (8am-noon)</option>
+        <option value>Evening (noon-4pm)</option>
+        <option value>Either</option>
+      </select>
+    </div>
+  </div>
+  <div class="rowTab">
+    <div class="labels">
+      <label for="whichDay">Which day/days can you work the event?</label>
+    </div>
+    <div class="rightTab">
+      <ul style="list-style">
+      <li class="radio">
+        <label>Saturday<input name="radio-buttons" value="1" type="radio" class="whichDay"></label></li>
+          <li class="radio">
+            <label>Sunday<input name="radio-buttons" value="2" type="radio" class="whichDay"></label></li>
+          <li class="radio">
+            <label>Both<input name="radio-buttons" value="3" type="radio" class="whichDay"></label></li>
+          </ul>
+        </div>
+    </div>
+    <div class="rowTab">
+         <div class="labels">
+              <label for="activities">Please choose all stations that you would be willing to work:</label>
+      </div>
+      <div class="rightTab">
+        <ul id="activities" style="list-style">
+          <li class="checkbox"><label><input name="activity" value="1" type="checkbox">Check-in the volunteers</label></li>
+          <li class="checkbox"><label><input name="activity" value="2" type="checkbox">Pass out bottled waters</li>
+          <li class="checkbox"><label><input name="activity" value="3" type="checkbox">Run the kitchen in food truck</label></li>
+          <li class="checkbox"><label><input name="activity" value="4" type="checkbox">Cashier/Server at food truck</label></li>
+          <li class="checkbox"><label><input name="activity" value="5" type="checkbox">Supervise the jump house</label></li>
+          <li class="checkbox"><label><input name="activity" value="6" type="checkbox">Bring baked goods</label></li>
+          <li class="checkbox"><labels><input name="activity" value="7" type="checkbox">Fill water balloons</labels></li>
+          <li class="checkbox"><labels><input name="activity" value="8" type="checkbox">Sit in the dunking booth</labels></li>
+          <li class="checkbox"><labels><input name="activity" value="9" type="checkbox">Carnival game attendant</labels></li>
+        </ul>
+      </div>
+  </div>
+  <div class="rowTab">
+    <div class="labels">
+      <label for="comments">We would love to hear any suggestions you may have for other stations at this event.</label>
+    </div>
+    <div class="rightTab"><textarea id="comments" class="input-field" name="comment" placeholder="Enter your event suggestions here..."></textarea>
+    </div>
+  </div>
+  <button id="submit" type="submit">Submit</button>
+  </form>
+</div>  
+</body>
+</html>
