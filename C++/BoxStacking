@@ -1,0 +1,73 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+struct Box {
+   int length, bredth, height;
+};
+
+int min (int x, int y) {
+   return (x < y)? x : y;
+}
+
+int max (int x, int y) {
+   return (x > y)? x : y;
+}
+
+bool compare(Box b1, Box b2) {
+   return b1.height > b2.height;    //to sort the box as descending order of height
+}
+
+int maxHeight( Box boxList[], int n ) {
+   Box rotation[3*n];    //a box can be rotared as 3 type, so there is 3n number of rotations
+   int index = 0;
+
+   for (int i = 0; i < n; i++) {
+      //store initial position of the box
+      rotation[index].length = boxList[i].length;
+      rotation[index].height = max(boxList[i].height, boxList[i].bredth);
+      rotation[index].bredth = min(boxList[i].height, boxList[i].bredth);
+      index++;
+
+      //dimention after first rotation
+      rotation[index].length = boxList[i].bredth;
+      rotation[index].height = max(boxList[i].length, boxList[i].height);
+      rotation[index].bredth = min(boxList[i].length, boxList[i].height);
+      index++;        
+   
+      //Dimention after second rotation
+      rotation[index].length = boxList[i].height;
+      rotation[index].height = max(boxList[i].length, boxList[i].bredth);
+      rotation[index].bredth = min(boxList[i].length, boxList[i].bredth);
+      index++;
+   }
+
+   n = 3*n;    //set n as 3n for 3 rotations of each boxes
+
+   sort(rotation, rotation+n, compare);    //sort rotation array as descending order
+
+   int maxHTemp[n];    //temporary max height if ith box is stacked
+
+   for (int i = 0; i < n; i++ )
+      maxHTemp[i] = rotation[i].length;
+   
+   for (int i = 1; i < n; i++ )    //find optimized stack height
+      for (int j = 0; j < i; j++ )
+         if ( rotation[i].bredth < rotation[j].bredth && rotation[i].height < rotation[j].height
+            && maxHTemp[i] < maxHTemp[j] + rotation[i].length) {
+            maxHTemp[i] = maxHTemp[j] + rotation[i].length;
+         }
+   int maxHeight = -1;
+   for ( int i = 0; i < n; i++ )    //find the maximum height from all temporary heights
+         
+      if ( maxHeight < maxHTemp[i] )
+         maxHeight = maxHTemp[i];
+         
+   return maxHeight;
+}
+
+int main() {
+   Box arr[] = { {4, 6, 7}, {1, 2, 3}, {4, 5, 6}, {10, 12, 32} };
+   int n = 4;
+   cout<<"The maximum possible height of box stack is: " << maxHeight (arr, n) << endl;
+}
