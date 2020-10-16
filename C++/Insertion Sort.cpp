@@ -1,34 +1,50 @@
 #include<iostream>
 using namespace std;
-void display(int *array, int size) {
-   for(int i = 0; i<size; i++)
-      cout << array[i] << " ";
-   cout << endl;
+void insert(int arr[], int i)
+{
+        int key, j;
+        key = arr[i];  
+        j = i - 1;
+        while (j >= 0 && arr[j] > key) 
+        {  
+            arr[j + 1] = arr[j];  
+            j = j - 1;  
+        }  
+        arr[j + 1] = key;  
 }
-void insertionSort(int *array, int size) {
-   int key, j;
-   for(int i = 1; i<size; i++) {
-      key = array[i];
-      j = i;
-      while(j > 0 && array[j-1]>key) {
-         array[j] = array[j-1];
-         j--;
-      }
-      array[j] = key;   
-   }
+
+void insertionSort(int arr[], int n)
+{
+   int i;
+   for (i = 1; i <n; i++)
+      insert(arr, i);
 }
-int main() {
-   int n;
-   cout << "Enter the number of elements: ";
-   cin >> n;
-   int arr[n];   
-   cout << "Enter elements:" << endl;
-   for(int i = 0; i<n; i++) {
-      cin >> arr[i];
-   }
-   cout << "Array before Sorting: ";
-   display(arr, n);
-   insertionSort(arr, n);
-   cout << "Array after Sorting: ";
-   display(arr, n);
+
+
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        cout<<arr[i];
+   cout<<endl;
 }
+
+int main()
+{
+    int arr[1000],n,T,i;
+
+    cin>>T;
+
+    while(T--){
+
+    cin>>n;
+
+    for(i=0;i<n;i++)
+      cin>>arr[i];
+
+    insertionSort(arr, n);
+    printArray(arr, n);
+    }
+    return 0;
+}
+
