@@ -1,42 +1,27 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
+int binarysearch(int arr[], int num, int start, int end)
+{   while(start<=end){
+    int middle = (start+end)/2;
+        if(arr[middle] == num)
+           return middle;
+        if(arr[middle]>num)
+           end=middle-1;
+        else
+           start=middle+1;
+       
+           }
+   return -1;
+}
 
 int main()
 {
-	int count, i, arr[30], num, first, last, middle;
-	cout<<"how many elements would you like to enter?:"; 
-        cin>>count;
+   int arr[]={1,2,6,7,8,10};
+   int num;
+   cin>>num;
+   int n = sizeof(arr)/ sizeof(arr[0]);
+   int ans=binarysearch(arr,num,0,n-1);
+   cout<<ans;
 
-	for (i=0; i<count; i++)
-	{
-		cout<<"Enter number "<<(i+1)<<": "; 
-                cin>>arr[i];
-	}
-	cout<<"Enter the number that you want to search:"; 
-        cin>>num;
-	first = 0;
-	last = count-1;
-	middle = (first+last)/2;
-	while (first <= last)
-	{
-	   if(arr[middle] < num)
-	   {
-		first = middle + 1;
-
-	   }
-	   else if(arr[middle] == num)
-	   {
-		cout<<num<<" found in the array at the location "<<middle+1<<"\n"; 
-                break; 
-           } 
-           else { 
-                last = middle - 1; 
-           } 
-           middle = (first + last)/2; 
-        } 
-        if(first > last)
-	{
-	   cout<<num<<" not found in the array";
-	}
-	return 0;
+   return 0;
 }
