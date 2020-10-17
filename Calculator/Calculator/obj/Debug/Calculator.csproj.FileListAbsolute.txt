@@ -1,0 +1,10 @@
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\obj\Debug\Calculator.Form1.resources
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\bin\Debug\Calculator.exe
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\obj\Debug\Calculator.exe
+C:\Users\Devinda\Desktop\C# programming\Software\Calculator\Calculator\obj\Debug\Calculator.pdb
