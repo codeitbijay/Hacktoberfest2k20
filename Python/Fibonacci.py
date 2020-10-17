@@ -2,7 +2,7 @@ def fibonacci(n):
    if n <= 1:
        return n
    else:
-       return(recur_fibo(n-1) + recur_fibo(n-2))
+       return(fibonacci(n-1) + fibonacci(n-2))
 
 num = eval(input("Fibonacci Sequence, Enter a Number: "))
 
