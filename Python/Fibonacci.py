@@ -6,9 +6,9 @@ def fibonacci(n):
 
 num = eval(input("Fibonacci Sequence, Enter a Number: "))
 
-if nterms <= 0:
+if num <= 0:
    print("Plese enter a positive integer")
 else:
    print("Fibonacci sequence: ")
    for i in range(num):
-       print(recur_fibo(i))
+       print(fibonacci(i))
