@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main()
-{ int n,f=1,s=0,r,i,n1;
+{ 
+ int n,f=1,s=0,r,i,n1;
 scanf("%d",&n);
 n=n1;
 while(n)
