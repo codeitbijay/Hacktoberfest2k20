@@ -1,0 +1,97 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<string.h>
+
+int push(char a);       //function to push the element in th stack
+char pop();             //function to pop element from the stack
+int operater(char c);   //function to check whether an element is an operater or not
+int precedence(char d); //function to check the precendence of the operater
+
+char stack[100];
+int top=-1;
+
+int push(char a)
+{
+    top=top+1;
+    stack[top]=a;
+    return 0;
+}
+
+char pop()
+{
+    char e;
+        e=stack[top];
+        top=top-1;
+        return(e);
+}
+
+int operater(char c)
+{
+    if(c=='^' || c=='*' || c=='+' || c=='-' || c=='/')
+        return (1);
+    else
+        return (0);
+}
+
+int precedence(char d)
+{
+    if(d=='^')
+        {return (3);}
+    else if(d=='*' || d=='/')
+        {return (2);}
+    else if(d=='+' || d=='-')
+        {return (1);}
+    else
+        return (0);
+}
+
+int main()
+{
+    char exp[50],item,x;
+    int i=0;
+    printf("enter the expression\n");
+    scanf("%s",&exp);
+    printf("Postfix expression is :\n");
+    item=exp[i];
+    while(item!='\0')
+    {
+        if(isalnum(item) || isdigit(item))
+        {
+            printf("%c",item);
+        }
+        else if(item=='(')
+        {
+            push(item);
+        }
+        else if(item==')')
+        {
+            x=pop();
+            while(x!='(')
+            {
+                printf("%c",x);
+                x=pop();
+            }
+        }
+        else if(operater(item)==1)
+        {
+            x=pop();
+            while(operater(x)==1 && precedence(x)>=precedence(item))
+                {
+                    printf("%c",x);
+                    x=pop();
+                }
+                push(x);
+                push(item);
+        }
+        else
+            printf("\ninvalid\n");
+        i++;
+        item=exp[i];
+    }
+    while(top!=-1)
+    {
+        x=pop();
+        printf("%c",x);
+    }
+}
