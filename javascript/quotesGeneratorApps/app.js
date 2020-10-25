@@ -10,7 +10,6 @@ async function getQuotes(name)
 getQuotes().then(data => {
     let rand_num=Math.floor(Math.random() * 1500);
     let quotes_detail=data[rand_num];
-    console.log(quotes_detail);
     let text=quotes_detail['text'];
     let author=quotes_detail['author'];
     $("h2").append(text);
