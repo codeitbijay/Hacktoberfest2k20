@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<div class='container my-2'>
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message.tags }}</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>{% endfor %}
+  {% endif %}
+  <div class="container-fluid px-0">
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to iCoder</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+        featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <a class="btn btn-primary btn-lg" href="/blog" role="button">Read Blog</a>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Popular Blogs</h2>
+    {% for allpost in allposts %}
+    <div class="card my-2">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ allpost.title }}</h5>
+        <p class="card-text previews">{{ allpost.content| truncatechars:200 }}</p>
+        <a href="/blog/{{ allpost.slug }}" class="btn btn-primary">Read More...</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <script>
+  let previews = document.getElementsByClassName('previews');
+  Array.from(previews).forEach((element)=>{
+    element.innerHTML = element.innerText;
+  })
+</script>
+  {% endblock body %}
