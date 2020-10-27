@@ -61,9 +61,7 @@ if 'hello' in MyText:
 			# three arguments, 1st the sentence which 
 			# needs to be translated 2nd source language 
 			# and 3rd to which we need to translate in 
-			text_to_translate = translator.translate(get_sentence, 
-													src= from_lang, 
-													dest= to_lang) 
+			text_to_translate = translator.translate(get_sentence, src= from_lang,dest= to_lang) 
 			
 			# Storing the translated text in text 
 			# variable 
