@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+float calsd(float num[]);
+int main()
+{
+    int i;
+    float num[10];
+    printf("Enter 10 elements: ");
+    for (i = 0; i < 10; i++)
+        scanf("%f", &num[i]);
+    printf("\nStandard Deviation = %f", calsd(num));
+    return 0;
+}
+
+float calsd(float data[])
+{
+    float sum = 0.0, mean, SD = 0.0;
+    int i;
+    for (i = 0; i < 10; i++) {
+        sum += num[i];
+    }
+    mean = sum / 10;
+    for (i = 0; i < 10; i++)
+        SD += pow(num[i] - mean, 2);
+    return sqrt(SD / 10);
+}
