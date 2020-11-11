@@ -1,0 +1,37 @@
+//Write a C++ program by combining the concepts of friend class and inline functions
+
+#include<iostream>
+using namespace std;
+class si
+{
+private:
+float amount;
+float years;
+float int_rate;
+public:
+void get_data(void);
+friend int simpleinterest(void);
+};
+void si::get_data(void)
+{
+cout<<"Enter Amount:"; cin>>amount;
+cout<<"Enter Years:";
+cin>>years;
+cout<<"enter Interest Rate:";
+cin>>int_rate;
+}
+int simpleinterest(void)
+{
+si s;
+int temp;
+s.get_data();
+temp=(s.amount*s.years*s.int_rate)/100;
+return temp;
+}
+int main()
+{
+int sim_int;
+sim_int=simpleinterest();
+cout<<"The simple interest = "<<sim_int<<endl;
+return 0;
+}
