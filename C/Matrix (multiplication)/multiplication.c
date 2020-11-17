@@ -16,7 +16,8 @@ int main()
 	printf("Columns (Matrix1) = ");
 	scanf("%d", &columns1);
 
-	if ((rows1 > 24) || (columns1 > 24)) {
+	if ((rows1 > 24) || (columns1 > 24))
+	{
 		fprintf(stderr, "Rows/Columns > 24 \nAborting! \n");
 		return -1;
 	}
@@ -41,7 +42,8 @@ int main()
 	printf("Columns (Matrix2) = ");
 	scanf("%d", &columns2);
 
-	if ((rows2 > 24) || (columns2 > 24)) {
+	if ((rows2 > 24) || (columns2 > 24)) 
+	{
 		fprintf(stderr, "Rows/Columns > 24 \nAborting! \n");
 		return -1;
 	}
@@ -60,7 +62,8 @@ int main()
 
 	printf("\n");
 
-	if (columns1 != rows2) {
+	if (columns1 != rows2) 
+	{
 		fprintf(stderr, "Matrices are incompatible for Multiplication \nAborting! \n");
 		return -1;
 	}
@@ -68,7 +71,8 @@ int main()
 	printf("Matrix1: \n");
 	for (i = 0; i < rows1; i++)
 	{
-		for (j = 0; j < columns1; j++) {
+		for (j = 0; j < columns1; j++) 
+		{
 			printf("%d	", matrix1[i][j]);
 		}
 		printf("\n");
@@ -79,7 +83,8 @@ int main()
 	printf("Matrix2: \n");
 	for (i = 0; i < rows2; i++)
 	{
-		for (j = 0; j < columns2; j++) {
+		for (j = 0; j < columns2; j++)
+		{
 			printf("%d	", matrix2[i][j]);
 		}
 		printf("\n");
@@ -91,7 +96,8 @@ int main()
 	for (i = 0; i < rows1; i++) {
 		for (j = 0; j < columns2; j++) {
 			multiplicationMatrix[i][j] = 0;
-			for (k = 0; k < columns1; k++) {
+			for (k = 0; k < columns1; k++)
+			{
 				multiplicationMatrix[i][j] += matrix1[i][k]*matrix2[k][j] ;
 			}
 			printf("%d	", multiplicationMatrix[i][j]);
