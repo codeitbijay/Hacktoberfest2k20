@@ -1,0 +1,18 @@
+function fib(n) {
+    var temp;
+    var left = 0;
+    var right = 1;
+
+    while(n >= 0){
+        temp = right;
+        right = right + left;
+        left = temp;
+        n--;
+    }
+
+    return left;
+}
+
+num = prompt("Enter a positve integer:" , "")
+
+fib(num);
