@@ -16,7 +16,8 @@ int main()
 	printf("Columns (Matrix1) = ");
 	scanf("%d", &columns1);
 
-	if ((rows1 > 24) || (columns1 > 24)) {
+	if ((rows1 > 24) || (columns1 > 24)) 
+	{
 		fprintf(stderr, "Rows/Columns > 24 \nAborting! \n");
 		return -1;
 	}
