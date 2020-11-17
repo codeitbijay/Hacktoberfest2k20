@@ -2,7 +2,8 @@
 
 long int iterativeFactorial(long int input);
 
-int main() {
+int main()
+{
 	long int number, result;
 
 	printf("Factorial of a number : \n");
