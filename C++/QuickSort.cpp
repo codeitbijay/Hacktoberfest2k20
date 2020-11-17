@@ -1,53 +1,55 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int partition(int *a,int start,int end)
+
+int partition(int a[], int l, int h)
 {
-    int pivot=a[end];
-    
-    int P_index=start;
-    int i,t; 
-     
-    for(i=start;i<end;i++)
+    int i, j, pivot, temp;
+    pivot = a[h];
+    i = l;
+    for(j=l; j<h; j++)
     {
-    	if(a[i]<=pivot)
+        if(a[j]<=pivot)
         {
-            t=a[i];
-            a[i]=a[P_index];
-            a[P_index]=t;
-            P_index++;
+            temp = a[j];
+            a[j] = a[i];
+            a[i] = temp;
+            i++;
         }
-     }
-          t=a[end];
-      a[end]=a[P_index];
-      a[P_index]=t;
-    
-     return P_index;
- }
- void Quicksort(int *a,int start,int end)
- {
-    if(start<end)
+    }
+    temp = a[h];
+    a[h] = a[i];
+    a[i] = temp;
+    return (i);
+}
+
+void quick_sort(int a[], int l, int h)
+{
+    int P;
+    if(l < h)
     {
-         int P_index=partition(a,start,end);
-             Quicksort(a,start,P_index-1);
-             Quicksort(a,P_index+1,end);
+        P = partition(a, l, h);
+        quick_sort(a, l, P-1);
+        quick_sort(a, P+1, h);
     }
 }
+
 int main()
 {
-    int n;
-        cout<<"Enter number of elements: ";
-        cin>>n;
-        int a[n];
-        cout<<"Enter the array elements:\n";
-        for(int i=0;i<n;i++)
-       {
-    	 cin>>a[i];
-       }
-      Quicksort(a,0,n-1);
-      cout<<"After Quick Sort the array is:\n";
-      for(int i=0;i<n;i++)
-      {
-    	 cout<<a[i]<<" ";
-      }
+    int array[50];
+    int i, n;
+    cout<<"Enter number of elements in array: ";
+    cin>>n;
+    for(i=0; i<n; i++)
+    {
+        cout<<"Enter element at position "<<i<<" : ";
+        cin>>array[i];
+    }
+    quick_sort(array, 0, n-1);
+    cout<<"\nSorted Array: ";
+    for(i=0; i<n; i++)
+    {
+        cout<<array[i]<<"  ";
+    }
+    
     return 0;
 }
