@@ -10,7 +10,8 @@ void bucketSort(float arr[], int n)
     vector<float> b[n]; 
   
     // 2) Put array elements in different buckets 
-    for (int i = 0; i < n; i++) { 
+    for (int i = 0; i < n; i++)
+    { 
         int bi = n * arr[i]; // Index in bucket 
         b[bi].push_back(arr[i]); 
     } 
