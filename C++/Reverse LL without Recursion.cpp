@@ -1,52 +1,51 @@
-//Reverse LL without Recursion
 #include<bits/stdc++.h>
 using namespace std;
-class Node
-{
-    public:
-    int data ;
-    Node* next ;
-    Node(int data)
-    {
-        this->data = data ;
-        this->next = NULL ;
-    }
+
+struct node {
+    int data;
+    struct node *next;
 };
-Node* rev(Node *head)
-{
-    if(head == NULL)
-        return NULL ;
-    Node* prev = NULL ;
-    Node* next = head->next ;
-    while(next!= NULL)
-    {
-        head->next = prev ;
-        prev = head ;
-        head = next ;
-        next = head->next ;
-    }
-    head->next = prev ;
-    return head ;
+
+void push(struct node **head, int data) {
+    struct node *node;
+    node = (struct node*)malloc(sizeof(struct node));
+    node->data = data;
+    node->next = (*head);
+    (*head) = node;
 }
-int main()
-{
-    Node *x = new Node(1);
-    Node *y = new Node(2);
-    Node *z = new Node(3);
-    Node *a = new Node(4);
-    Node *b = new Node(5);
-    Node *c = new Node(6);
-    x->next = y ;
-    y->next = z ;
-    z->next = a ;
-    a->next = b ;
-    b->next = c ;
-    Node *head = rev(x) ;
-    Node *temp = head ;
-    while(temp != NULL)
-    {
-        cout<<temp->data<<" ";
-        temp = temp->next ;
+ 
+void reverse(struct node **head) {
+    struct node *temp = NULL;
+    struct node *prev = NULL;
+    struct node *current = (*head);
+    while(current != NULL) {
+        temp = current->next;
+        current->next = prev;
+        prev = current;
+        current = temp;
     }
+    (*head) = prev;
+}
+
+void print(struct node *head) {
+    while(head != NULL) {
+        cout<<head->data<<" ";
+        head = head->next;
+    }
+}
+
+int main() {
+    struct node *head = NULL;
+    push(&head, 100);
+    push(&head, 1);
+    push(&head, 3);
+    push(&head, 11);
+    push(&head, 9);
+    push(&head, 27);
+    
+    print(head);
+    cout<<endl;
+    reverse(&head); 
+    print(head);
     return 0;
 }
