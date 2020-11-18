@@ -1,31 +1,18 @@
 import java.util.*;
 public class MinMax 
 {
-    int max(int[] arr)
-    {
-        int max=0;
-        for(int i=0;i<arr.length;i++)
-        {
-            if(arr[i]>max)
-            {
-                max=arr[i];
-            }
+    public void sort(int arr[],int n){
+    int temp;
+        for(int i=1;i<n;i++)
+        for(int j=0;j<n-i;j++){
+        if(arr[j]>arr[j+1]){
+            temp=arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
         }
-        return max;
-    }
-    
-    int min(int[] arr)
-    {
-        int min=arr[0];
-        for(int i=0;i<arr.length;i++)
-        {
-            if(arr[i]<min)
-            {
-                min=arr[i];
-            }
         }
-        return min;
     }
+
     
     public static void main (String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -43,9 +30,9 @@ public class MinMax
             {
                 arr[i]=sc.nextInt();
             }
-            
-            System.out.println("MAX:"+obj.max(arr));
-            System.out.println("MIN:"+obj.max(arr));
+            obj.sort(arr,n);
+            System.out.println("MAX:"+arr[n-1]);
+            System.out.println("MIN:"+arr[0]);
         }
         else
         {
