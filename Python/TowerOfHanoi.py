@@ -6,4 +6,5 @@ def TowerOfHanoi(n, src, dst, tmp):
         TowerOfHanoi(n - 1, tmp, dst, src) 
 
 # Driver code
-TowerOfHanoi(4, 'A', 'C', 'B')
+n=int(input("Enter Number of Disks : "))
+TowerOfHanoi(n, 'Source', 'Destination', 'Auxillary')
