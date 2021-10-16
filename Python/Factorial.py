@@ -1,8 +1,5 @@
-def fact (n):
-	if n==0:
-		return 1
-	return n*fact(n-1)
-
-result=fact(int(input("Enter the number")))
-
-print(result)           
+n = int(input('Enter num: '))
+fic = 1
+for i in range(n,0,-1):
+	fic*=i
+print(fic)
