@@ -1,18 +1,7 @@
-# function to check string is 
-# palindrome or not 
-def isPalindrome(str):
-
-	# Run loop from 0 to len/2 
-	for i in range(0, int(len(str)/2)): 
-		if str[i] != str[len(str)-i-1]:
-			return False
-	return True
-
-# main function
-s = "malayalam"
-ans = isPalindrome(s)
-
-if (ans):
-	print("Yes")
+n = input()
+b = list(n)
+b_rev = b[::-1]
+if(b == b_rev):
+	print('It is a Palindrome')
 else:
-	print("No")
+	print('It is not a Palindorme')
