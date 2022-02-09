@@ -1,5 +1,5 @@
 
-# Hacktoberfest2k20
+# Hacktoberfest2k20 - Bijay Pal
 
 Hacktoberfest is a program by Digital Ocean, DEV and Github, where you can easily win a T-Shirt just by making 4 pull requests in the month of October to any open source projects on Github.
 Anyone can send any type of code.
