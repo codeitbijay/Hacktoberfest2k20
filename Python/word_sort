@@ -1,0 +1,6 @@
+my_str = input("enter the text to be sorted")
+words = my_str.split()
+words.sort()
+print("The sorted words are:")
+for word in words:
+   print(word)
