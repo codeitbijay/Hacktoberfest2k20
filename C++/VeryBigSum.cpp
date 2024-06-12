@@ -7,7 +7,7 @@ vector<string> split_string(string);
 // Complete the aVeryBigSum function below.
 long aVeryBigSum(vector<long> ar) {
     long int ans=0;
-    for(int i=0;i<ar.size();i++){
+    for(int i=0 ; i<ar.size() ; ++i){
         ans+=ar[i];
     }
     return ans;
