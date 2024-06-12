@@ -1,0 +1,29 @@
+import random
+
+options = ["Rock","Paper","Scissors"]
+Computer = random.choice(options)
+user = raw_input("Pick either Rock, Paper or Scissors: ")
+user = user.lower()
+if user == 'rock' or 'paper' or 'scissors':
+    print "The computer has drawn %s whilst you have drawn %s " % (Computer,You)
+if user == 'rock':
+    if AI == 'Rock':
+        print 'Tie Game'
+    elif AI == 'Paper':
+        print 'Computer wins'
+    else:
+        print 'You Wins'
+if user == 'paper':
+    if AI == 'Rock':
+        print 'You Win'
+    elif AI == 'Paper':
+        print 'Tie Game'
+    else:
+        print 'Computer Wins'
+if user == 'scissors':
+    if AI == 'Rock':
+        print 'Computer Wins'
+    elif AI == 'Paper':
+        print 'You Win'
+    else:
+        print 'Tie Game'
