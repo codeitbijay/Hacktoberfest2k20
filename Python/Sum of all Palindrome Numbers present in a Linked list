@@ -1,0 +1,73 @@
+
+
+class Node: 
+		
+	def __init__(self, data): 
+		self.data = data 
+		self.next = next
+			
+
+def push( head_ref, new_data) : 
+	
+	
+	new_node = Node(0) 
+	
+
+	new_node.data = new_data 
+	
+
+	new_node.next = (head_ref) 
+	
+	
+	(head_ref) = new_node 
+	
+	return head_ref 
+
+	
+
+def isPalin(n) : 
+	
+	d = 0; s = 0; 
+	temp = n; 
+	while (n > 0) : 
+	
+		d = n % 10; 
+		s = s * 10 + d; 
+		n = n // 10; 
+	
+	
+	return s == temp; 
+	
+	
+
+def sumOfpal(head_ref1) : 
+
+	s = 0; 
+	ptr1 = head_ref1 
+
+	while (ptr1 != None) : 
+	
+		if (isPalin(ptr1.data)) : 
+			
+		
+			s = s + ptr1.data 
+
+		
+		ptr1 = ptr1.next
+
+	return s; 
+	
+ 
+
+ 
+head1 = None
+
+
+head1 = push(head1, 13) 
+head1 = push(head1, 212) 
+head1 = push(head1, 22) 
+head1 = push(head1, 44) 
+head1 = push(head1, 4) 
+head1 = push(head1, 3) 
+
+print(sumOfpal(head1)) 
