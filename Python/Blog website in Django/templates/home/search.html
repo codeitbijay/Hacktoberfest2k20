@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock title %}
+
+{% block body %}
+<div class="container my-4">
+    <h2>Search Results:</h2><br>
+    {% if allpost|length < 1 %}
+    <p>No Search found</p>
+    <h6> Your search '<strong>{{query}}</strong>' did not match any blog title.</h6>
+    <p>Try different keywords.</p>
+    {% endif %}
+    
+    {% for post in allpost %}
+    <div class="card">
+        <strong class="d-inline-block text-primary px-2">Article by {{ post.author }}</strong>
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <div class="mb-1 text-muted">{{ post.timeStamp }}</div>
+          <p class="card-text">{{ post.content| truncatechars:100 }}</p>
+          <a href="/blog/{{ post.slug }}" class="btn btn-primary">Read More...</a>
+        </div>
+      </div><br>
+      {% endfor %}
+</div>
+{% endblock body %}
