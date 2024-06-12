@@ -1,0 +1,89 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/*
+=============== 
+Container
+===============
+*/
+
+body {
+  background: url(background.jpg) no-repeat center center fixed;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.1rem;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.canvas-container {
+  flex-basis: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+=============== 
+Inside container
+===============
+*/
+
+.canvas {
+  background-color: #3e3e3e;
+}
+hr {
+  border: none;
+  min-height: 5px;
+  background: #0e0e0e;
+  margin: 1rem 0;
+}
+
+.score-container {
+  flex-basis: 30%;
+  display: block;
+  background: #404d07;
+  padding: 15px;
+  color: white;
+}
+
+.score-text {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.current-score-value {
+  
+}
+
+.high-score-value::before {
+  content: "Highest Score : "
+}
+
+
+/* Development purpose */
+* {
+  /* border: 1px solid red; */
+}
