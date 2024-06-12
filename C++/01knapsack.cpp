@@ -5,7 +5,8 @@ using namespace std;
 //Memoization
 int t[100][100];
 
-int knapsack(int wt[],int val[],int w,int n){
+int knapsack(int wt[],int val[],int w,int n)
+{
     if(n==0||w==0){
         return 0;
     }
@@ -18,7 +19,8 @@ int knapsack(int wt[],int val[],int w,int n){
         );
     }
 
-    else{
+    else
+    {
             return t[n][w]= knapsack(wt,val,w,n-1);
     }
 }
@@ -36,7 +38,8 @@ void knapsackTab(int wt[],int val[],int w,int n){
         // cout<<"For element "<<i<<": "<<endl;
         for(int j=1;j<w+1;j++){
             // cout<<"For weight "<<j<<": "<<endl;
-            if(wt[i-1]<=j){
+            if(wt[i-1]<=j)
+            {
                 // cout<<arr[i-1][j-wt[i]]<<" "<<arr[i-1][j]<<" "<<val[i-1]<<endl;
                 arr[i][j]=max(val[i-1]+arr[i-1][j-wt[i-1]] , arr[i-1][j]);
             }
