@@ -1,8 +1,10 @@
 #include<iostream>
+#define int long long
 using namespace std;
 int binarysearch(int arr[], int num, int start, int end)
-{   while(start<=end){
-    int middle = (start+end)/2;
+{
+   while(start<=end){
+    int middle = start+(end-start)/2;
         if(arr[middle] == num)
            return middle;
         if(arr[middle]>num)
@@ -14,7 +16,7 @@ int binarysearch(int arr[], int num, int start, int end)
    return -1;
 }
 
-int main()
+int32_t main()
 {
    int arr[]={1,2,6,7,8,10};
    int num;
