@@ -1,0 +1,10 @@
+--Alterar tabelas
+
+-- Adicionar Colunas
+ALTER TABLE nome_tabela ADD nome_coluna tipo_dados;
+
+-- deletar colunas
+ALTER TABLE nome_tabela DROP COLUMN nome_coluna;
+
+-- Mudar tipagem
+ALTER TABLE nome_tabela MODIFY COLUMN nome_coluna tipo_dados;
