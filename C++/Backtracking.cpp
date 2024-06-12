@@ -10,7 +10,8 @@ constexpr int ROW = 4;
 constexpr int COL = 4;
 
 
-bool canAdd(int board[ROW][COL], int row, int col) {
+bool canAdd(int board[ROW][COL], int row, int col) 
+{
 
     for(int i = 0; i < col; i++)
         if(board[row][i])
@@ -31,15 +32,18 @@ bool canAdd(int board[ROW][COL], int row, int col) {
 }
 
 
-bool solve(int board[ROW][COL], int current_column) {
+bool solve(int board[ROW][COL], int current_column)
+{
 
     if(current_column >= COL)
         return true;
 
 
-    for(int i = 0; i < ROW; i++) {
+    for(int i = 0; i < ROW; i++)
+    {
 
-        if(canAdd(board, i, current_column)) {
+        if(canAdd(board, i, current_column)) 
+        {
 
             board[i][current_column] = 1;
 
@@ -57,7 +61,8 @@ bool solve(int board[ROW][COL], int current_column) {
 }
 
 
-void printBoard(int board[ROW][COL]) {
+void printBoard(int board[ROW][COL]) 
+{
 
     for(int i = 0; i < ROW; i++) {
 
@@ -71,7 +76,8 @@ void printBoard(int board[ROW][COL]) {
 }
 
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) 
+{
 
     int board[ROW][COL] = { 0 };
 
