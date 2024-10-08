@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 100
+
+typedef struct {
+    int items[MAX_SIZE];
+    int front;
+    int rear;
+} Queue;
+
+void initializeQueue(Queue *queue) {
+    queue->front = -1;
+    queue->rear = -1;
+}
+
+int isEmpty(Queue *queue) {
+    return queue->front == -1;
+}
+
+int isFull(Queue *queue) {
+    return queue->rear == MAX_SIZE - 1;
+}
+
+void enqueue(Queue *queue, int item) {
+    if (isFull(queue)) {
+        printf("Queue is full!\n");
+        return;
+    }
+    if (isEmpty(queue)) {
+        queue->front = 0;
+    }
+    queue->rear = (queue->rear + 1) % MAX_SIZE;
+    queue->items[queue->rear] = item;
+}
+
+int dequeue(Queue *queue) {
+    if (isEmpty(queue)) {
+        printf("Queue is empty!\n");
+        return -1; // Indicate failure
+    }
+    int item = queue->items[queue->front];
+    if (queue->front == queue->rear) {
+        initializeQueue(queue);
+    } else {
+        queue->front = (queue->front + 1) % MAX_SIZE;
+    }
+    return item;
+}
+
+void printQueue(Queue *queue) {
+    if (isEmpty(queue)) {
+        printf("Queue is empty!\n");
+        return;
+    }
+    printf("Queue elements: ");
+    for (int i = queue->front; i != queue->rear; i = (i + 1) % MAX_SIZE) {
+        printf("%d ", queue->items[i]);
+    }
+    printf("%d\n", queue->items[queue->rear]);
+}
+
+int main() {
+    Queue queue;
+    initializeQueue(&queue);
+
+    enqueue(&queue, 10);
+    enqueue(&queue, 20);
+    enqueue(&queue, 30);
+
+    printf("Dequeued: %d\n", dequeue(&queue));
+    printf("Dequeued: %d\n", dequeue(&queue));
+
+    enqueue(&queue, 40);
+    enqueue(&queue, 50);
+
+    printQueue(&queue);
+
+    return 0;
+}
